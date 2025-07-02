@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Gasto Fijo</h2>
+<form method="POST">
+    <select name="tipo">
+        <option value="Luz" {% if gasto[1] == 'Luz' %}selected{% endif %}>Luz</option>
+        <option value="Agua" {% if gasto[1] == 'Agua' %}selected{% endif %}>Agua</option>
+        <option value="Gas" {% if gasto[1] == 'Gas' %}selected{% endif %}>Gas</option>
+        <option value="Renta" {% if gasto[1] == 'Renta' %}selected{% endif %}>Renta</option>
+    </select>
+    <input type="number" step="0.01" name="monto" value="{{ gasto[2] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}
+
+

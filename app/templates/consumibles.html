@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Consumibles</h2>
+<form method="POST" action="{{ url_for('main.agregar_consumible') }}">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="number" step="0.01" name="costo" placeholder="Costo unitario">
+    <input type="text" name="unidad" placeholder="Unidad medida">
+    <input type="number" name="stock" placeholder="Stock">
+    <input type="number" name="proveedor" placeholder="ID Proveedor">
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1">
+    <tr><th>Nombre</th><th>Costo</th><th>Unidad</th><th>Stock</th><th>Proveedor</th><th>Acciones</th></tr>
+    {% for c in consumibles %}
+    <tr>
+        <td>{{ c[1] }}</td>
+        <td>{{ c[2] }}</td>
+        <td>{{ c[3] }}</td>
+        <td>{{ c[4] }}</td>
+        <td>{{ c[5] }}</td>
+        <td>
+            <a href="{{ url_for('main.editar_consumible', id=c[0]) }}">Editar</a> |
+            <a href="{{ url_for('main.eliminar_consumible', id=c[0]) }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

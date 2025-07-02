@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Mobiliario</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ mobiliario[1] }}" required>
+    <input type="number" step="0.01" name="adquisicion" value="{{ mobiliario[2] }}">
+    <input type="number" step="0.01" name="mantenimiento" value="{{ mobiliario[3] }}">
+    <input type="number" name="stock" value="{{ mobiliario[4] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

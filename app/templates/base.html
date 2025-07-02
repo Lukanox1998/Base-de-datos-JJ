@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Gestión de Inventario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('main.index') }}">Inicio</a>
+        <a href="{{ url_for('main.productos') }}">Productos</a>
+        <a href="{{ url_for('main.servicios') }}">Servicios</a>
+        <a href="{{ url_for('main.herramientas') }}">Herramientas</a> 
+        <a href="{{ url_for('main.consumibles') }}">Consumibles</a> 
+        <a href="{{ url_for('main.materia') }}">Materia Prima</a>
+        <a href="{{ url_for('main.proveedores') }}">Proveedores</a>
+        <a href="{{ url_for('main.activos') }}">Activos fijos</a>
+        <a href="{{ url_for('main.mobiliario') }}">Mobiliario</a>
+        <a href="{{ url_for('main.gastos') }}">Gastos fijos</a>
+
+        <!-- Agrega enlaces para servicios, herramientas, etc. -->
+    </nav>
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for msg in messages %}
+                <li>{{ msg }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

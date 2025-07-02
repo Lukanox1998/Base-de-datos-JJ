@@ -1,0 +1,12 @@
+<!-- editar_servicio.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Servicio</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ servicio[1] }}" required>
+    <input type="number" step="0.01" name="costo" value="{{ servicio[2] }}">
+    <input type="time" name="tiempo" value="{{ servicio[3] }}">
+    <input type="text" name="descripcion" value="{{ servicio[4] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

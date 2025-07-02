@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Servicios</h2>
+<form method="POST" action="{{ url_for('main.agregar_servicio') }}">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="number" step="0.01" name="costo" placeholder="Costo mano de obra">
+    <input type="time" name="tiempo">
+    <input type="text" name="descripcion" placeholder="Descripción">
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1">
+    <tr><th>Nombre</th><th>Costo</th><th>Tiempo</th><th>Descripción</th><th>Acciones</th></tr>
+    {% for s in servicios %}
+    <tr>
+        <td>{{ s[1] }}</td>
+        <td>{{ s[2] }}</td>
+        <td>{{ s[3] }}</td>
+        <td>{{ s[4] }}</td>
+        <td>
+            <a href="{{ url_for('main.editar_servicio', id=s[0]) }}">Editar</a> |
+            <a href="{{ url_for('main.eliminar_servicio', id=s[0]) }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

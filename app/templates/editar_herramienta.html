@@ -1,0 +1,13 @@
+<!-- editar_herramienta.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Herramienta</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ herramienta[1] }}" required>
+    <input type="number" step="0.01" name="costo" value="{{ herramienta[2] }}">
+    <input type="text" name="tiempo" value="{{ herramienta[3] }}">
+    <input type="number" name="stock" value="{{ herramienta[4] }}">
+    <input type="number" name="proveedor" value="{{ herramienta[5] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

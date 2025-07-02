@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Proveedores</h2>
+<form method="POST" action="{{ url_for('main.agregar_proveedor') }}">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="contacto" placeholder="Contacto">
+    <select name="tipo">
+        <option value="Materia Prima">Materia Prima</option>
+        <option value="Consumible">Consumible</option>
+        <option value="Herramienta">Herramienta</option>
+    </select>
+    <button type="submit">Agregar</button>
+</form>
+
+<table border="1">
+    <tr><th>Nombre</th><th>Contacto</th><th>Tipo</th><th>Acciones</th></tr>
+    {% for p in proveedores %}
+    <tr>
+        <td>{{ p[1] }}</td>
+        <td>{{ p[2] }}</td>
+        <td>{{ p[3] }}</td>
+        <td>
+            <a href="{{ url_for('main.editar_proveedor', id=p[0]) }}">Editar</a> |
+            <a href="{{ url_for('main.eliminar_proveedor', id=p[0]) }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

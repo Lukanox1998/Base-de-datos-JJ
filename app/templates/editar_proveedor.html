@@ -1,0 +1,16 @@
+<!-- editar_proveedor.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Proveedor</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ proveedor[1] }}" required>
+    <input type="text" name="contacto" value="{{ proveedor[2] }}">
+    <select name="tipo">
+        <option value="Materia Prima" {% if proveedor[3] == 'Materia Prima' %}selected{% endif %}>Materia Prima</option>
+        <option value="Consumible" {% if proveedor[3] == 'Consumible' %}selected{% endif %}>Consumible</option>
+        <option value="Herramienta" {% if proveedor[3] == 'Herramienta' %}selected{% endif %}>Herramienta</option>
+    </select>
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}
+

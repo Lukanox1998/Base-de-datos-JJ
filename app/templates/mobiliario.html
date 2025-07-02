@@ -1,0 +1,30 @@
+<!-- mobiliario.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Mobiliario</h2>
+<form method="POST" action="{{ url_for('main.agregar_mobiliario') }}">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="number" step="0.01" name="adquisicion" placeholder="Costo de adquisición">
+    <input type="number" step="0.01" name="mantenimiento" placeholder="Costo mantenimiento diario">
+    <input type="number" name="stock" placeholder="Stock">
+    <button type="submit">Agregar</button>
+</form>
+
+<table>
+<tr><th>Nombre</th><th>Adquisición</th><th>Mantenimiento</th><th>Stock</th><th>Acciones</th></tr>
+{% for m in mobiliario %}
+<tr>
+    <td>{{ m[1] }}</td>
+    <td>{{ m[2] }}</td>
+    <td>{{ m[3] }}</td>
+    <td>{{ m[4] }}</td>
+    <td>
+        <a href="{{ url_for('main.editar_mobiliario', id=m[0]) }}">Editar</a> |
+        <a href="{{ url_for('main.eliminar_mobiliario', id=m[0]) }}">Eliminar</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+
+

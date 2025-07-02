@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Activo Fijo</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ activo[1] }}" required>
+    <input type="number" step="0.01" name="valor" value="{{ activo[2] }}">
+    <select name="estado">
+        <option value="Bueno" {% if activo[3] == 'Bueno' %}selected{% endif %}>Bueno</option>
+        <option value="Regular" {% if activo[3] == 'Regular' %}selected{% endif %}>Regular</option>
+        <option value="Malo" {% if activo[3] == 'Malo' %}selected{% endif %}>Malo</option>
+    </select>
+    <input type="number" step="0.01" name="mantenimiento" value="{{ activo[4] }}">
+    <input type="number" name="stock" value="{{ activo[5] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}

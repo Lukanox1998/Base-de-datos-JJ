@@ -1,0 +1,13 @@
+<!-- editar_consumible.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Consumible</h2>
+<form method="POST">
+    <input type="text" name="nombre" value="{{ consumible[1] }}" required>
+    <input type="number" step="0.01" name="costo" value="{{ consumible[2] }}">
+    <input type="text" name="unidad" value="{{ consumible[3] }}">
+    <input type="number" name="stock" value="{{ consumible[4] }}">
+    <input type="number" name="proveedor" value="{{ consumible[5] }}">
+    <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}
