@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, send_file
 from . import mysql
-
 # Para exportar PDF y Excel
 from datetime import date
 from io import BytesIO
@@ -464,3 +463,5 @@ def eliminar_gasto(id):
     cur.execute("DELETE FROM GastosFijos WHERE id_gasto = %s", (id,))
     mysql.connection.commit()
     return redirect(url_for('main.gastos'))
+
+# --------------------- Usuarios ---------------
