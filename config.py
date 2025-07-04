@@ -1,6 +1,8 @@
+#config.py
 class Config:
-    SECRET_KEY = 'Sistemasjj.25!'
-    MYSQL_HOST = '127.0.0.1'
-    MYSQL_USER = 'root'
-    MYSQL_PASSWORD = 'Emanuel.12!'
-    MYSQL_DB = 'fabrica_racks'
+MYSQL_HOST = '54.191.253.12'         # o la IP pública del hosting
+MYSQL_USER = 'siste234_adminjj'
+MYSQL_PASSWORD = 'Lukanox.12!'
+MYSQL_NAME = 'base_datos_fabrica_racks'
+MYSQL_CURSORCLASS = 'DictCursor'
+SECRET_KEY = 'Sistemasjj.25!'
